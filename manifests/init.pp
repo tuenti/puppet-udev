@@ -8,6 +8,13 @@
 #
 # === Parameters
 #
+# [*package_ensure*]
+#
+# String, Possible values: 'latest, present, string version'
+#
+# Default: present
+#
+#
 # [*udev_log*]
 #
 # String. Possible values: 'err, 'info', 'debug'
@@ -20,6 +27,7 @@
 # include udev
 #
 class udev(
+  $package_ensure = $udev::params::package_ensure
   $udev_log = $udev::params::udev_log,
   $config_file_replace = $udev::params::config_file_replace,
   $rules = $udev::params::rules,
@@ -29,7 +37,7 @@ class udev(
 
   anchor { 'udev:begin': } ->
   package{ $udev::params::udev_package:
-    ensure => present,
+    ensure => $udev::package_ensure,
   } ->
   file { '/etc/udev/udev.conf':
     ensure  => file,

@@ -46,6 +46,12 @@ This class does not need to be manually included in the manifest when using the
 include udev
 ```
 
+### Managing `udev` installed version
+
+```puppet
+class { 'udev': package_ensure = '230-7~bpo8+2' }
+```
+
 ### Managing `udev` syslog verbosity
 
 Controls the value of `udev_log` in `udev.conf` and change the runtime syslog

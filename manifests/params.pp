@@ -5,9 +5,10 @@
 class udev::params {
   $config_file_replace = true
 
-  $udev_log     = 'err'
-  $udevadm_path = '/sbin'
-  $rules        = undef
+  $package_ensure = present
+  $udev_log       = 'err'
+  $udevadm_path   = '/sbin'
+  $rules          = undef
 
   case $::osfamily {
     'debian': {
