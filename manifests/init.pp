@@ -27,7 +27,7 @@
 # include udev
 #
 class udev(
-  $package_ensure = $udev::params::package_ensure
+  $package_ensure = $udev::params::package_ensure,
   $udev_log = $udev::params::udev_log,
   $config_file_replace = $udev::params::config_file_replace,
   $rules = $udev::params::rules,
